@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="add1" class="org.katheer.bean.Address">
+        <property name="doorNo" value="4/167"/>
+        <property name="street" value="North Street"/>
+        <property name="locality" value="Domlur"/>
+        <property name="district" value="Bangalore"/>
+        <property name="state" value="Karnataka"/>
+        <property name="pin" value="507192"/>
+    </bean>
+
+    <bean id="profile1" class="org.katheer.bean.Profile">
+        <property name="name" value="Abdul Katheer M"/>
+        <property name="mobile" value="9897298392"/>
+        <property name="email" value="abdul@ig.com"/>
+        <!-- Passing reference of another bean -->
+        <property name="address" ref="add1"/>
+    </bean>
+
+    <bean id="profile2" class="org.katheer.bean.Profile">
+        <property name="name" value="Dhanalakshmi"/>
+        <property name="mobile" value="9997929773"/>
+        <property name="email" value="dhana@stellar.com"/>
+        <property name="address">
+            <!-- creating inner bean -->
+            <bean id="a1" class="org.katheer.bean.Address">
+                <property name="doorNo" value="62"/>
+                <property name="street" value="Grapes Street"/>
+                <property name="locality" value="Koyambedu"/>
+                <property name="district" value="Chennai"/>
+                <property name="state" value="Tamilnadu"/>
+                <property name="pin" value="600001"/>
+            </bean>
+        </property>
+    </bean>
+</beans>
